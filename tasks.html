@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tasks - CreativeCRM</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0" />
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <span class="material-symbols-rounded logo-icon">layers</span>
+                    <h2>CreativeCRM</h2>
+                </div>
+                <button class="close-sidebar" id="closeSidebarBtn"><span class="material-symbols-rounded">close</span></button>
+            </div>
+            <nav class="sidebar-nav">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="index.html" class="nav-link"><span class="material-symbols-rounded">dashboard</span><span>Dashboard</span></a></li>
+                    <li class="nav-item"><a href="clients.html" class="nav-link"><span class="material-symbols-rounded">group</span><span>Clients</span></a></li>
+                    <li class="nav-item"><a href="leads.html" class="nav-link"><span class="material-symbols-rounded">leaderboard</span><span>Leads</span></a></li>
+                    <li class="nav-item"><a href="#" class="nav-link"><span class="material-symbols-rounded">folder_open</span><span>Projects</span></a></li>
+                    <li class="nav-item active"><a href="tasks.html" class="nav-link"><span class="material-symbols-rounded">task_alt</span><span>Tasks</span></a></li>
+                    <li class="nav-item"><a href="analytics.html" class="nav-link"><span class="material-symbols-rounded">analytics</span><span>Analytics</span></a></li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <ul class="nav-list"><li class="nav-item"><a href="#" class="nav-link"><span class="material-symbols-rounded">settings</span><span>Settings</span></a></li></ul>
+                <div class="user-profile">
+                    <img src="https://ui-avatars.com/api/?name=Alex+Doe&background=0D8ABC&color=fff" alt="User Profile" class="avatar">
+                    <div class="user-info"><p class="user-name">Alex Doe</p><p class="user-role">Admin</p></div>
+                </div>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-header">
+                <div class="header-left">
+                    <button class="menu-btn" id="menuBtn"><span class="material-symbols-rounded">menu</span></button>
+                    <h1 class="page-title">Task Management</h1>
+                </div>
+                <div class="header-right">
+                    <button class="btn-primary" style="display:flex;align-items:center;gap:8px;" onclick="openAddTaskModal()">
+                        <span class="material-symbols-rounded" style="font-size:20px;">add</span> Add Task
+                    </button>
+                </div>
+            </header>
+
+            <div class="content-area">
+                <!-- Task Stats -->
+                <div class="task-stats-row">
+                    <div class="task-stat-card">
+                        <span class="material-symbols-rounded" style="color:var(--clr-primary)">task_alt</span>
+                        <div><p class="stat-num">24</p><p class="stat-label">Total Tasks</p></div>
+                    </div>
+                    <div class="task-stat-card">
+                        <span class="material-symbols-rounded" style="color:var(--clr-success)">check_circle</span>
+                        <div><p class="stat-num">14</p><p class="stat-label">Completed</p></div>
+                    </div>
+                    <div class="task-stat-card">
+                        <span class="material-symbols-rounded" style="color:var(--clr-warning)">pending</span>
+                        <div><p class="stat-num">7</p><p class="stat-label">In Progress</p></div>
+                    </div>
+                    <div class="task-stat-card">
+                        <span class="material-symbols-rounded" style="color:var(--clr-danger)">error</span>
+                        <div><p class="stat-num">3</p><p class="stat-label">Overdue</p></div>
+                    </div>
+                </div>
+
+                <!-- Filter Tabs + Tasks -->
+                <div class="table-card full-width">
+                    <div class="task-filter-tabs">
+                        <button class="tab-btn active" onclick="filterTasks(this, 'all')">All Tasks</button>
+                        <button class="tab-btn" onclick="filterTasks(this, 'today')">Today</button>
+                        <button class="tab-btn" onclick="filterTasks(this, 'upcoming')">Upcoming</button>
+                        <button class="tab-btn" onclick="filterTasks(this, 'overdue')">Overdue</button>
+                    </div>
+                    <div class="tasks-full-list" id="taskList">
+                        <!-- Task Row -->
+                        <div class="task-row" data-tag="today">
+                            <div class="task-row-left">
+                                <div class="custom-checkbox"><input type="checkbox" id="ft1"><label for="ft1"></label></div>
+                                <div>
+                                    <h4 class="task-row-title">Client Meeting – TechNova Inc.</h4>
+                                    <p class="task-row-meta"><span class="material-symbols-rounded">event</span> Today, 5:00 PM &nbsp;·&nbsp; <span class="material-symbols-rounded">person</span> Sarah Smith</p>
+                                </div>
+                            </div>
+                            <div class="task-row-right">
+                                <span class="priority-label high">High</span>
+                                <button class="icon-btn-small"><span class="material-symbols-rounded">edit</span></button>
+                                <button class="icon-btn-small danger"><span class="material-symbols-rounded">delete</span></button>
+                            </div>
+                        </div>
+                        <div class="task-row" data-tag="upcoming">
+                            <div class="task-row-left">
+                                <div class="custom-checkbox"><input type="checkbox" id="ft2"><label for="ft2"></label></div>
+                                <div>
+                                    <h4 class="task-row-title">Proposal Submission – Creative Labs</h4>
+                                    <p class="task-row-meta"><span class="material-symbols-rounded">event</span> Tomorrow, 10:00 AM &nbsp;·&nbsp; <span class="material-symbols-rounded">person</span> John Doe</p>
+                                </div>
+                            </div>
+                            <div class="task-row-right">
+                                <span class="priority-label medium">Medium</span>
+                                <button class="icon-btn-small"><span class="material-symbols-rounded">edit</span></button>
+                                <button class="icon-btn-small danger"><span class="material-symbols-rounded">delete</span></button>
+                            </div>
+                        </div>
+                        <div class="task-row" data-tag="upcoming">
+                            <div class="task-row-left">
+                                <div class="custom-checkbox"><input type="checkbox" id="ft3"><label for="ft3"></label></div>
+                                <div>
+                                    <h4 class="task-row-title">Review UI Mockups</h4>
+                                    <p class="task-row-meta"><span class="material-symbols-rounded">event</span> May 22, 2:00 PM &nbsp;·&nbsp; <span class="material-symbols-rounded">person</span> Alex Doe</p>
+                                </div>
+                            </div>
+                            <div class="task-row-right">
+                                <span class="priority-label low">Low</span>
+                                <button class="icon-btn-small"><span class="material-symbols-rounded">edit</span></button>
+                                <button class="icon-btn-small danger"><span class="material-symbols-rounded">delete</span></button>
+                            </div>
+                        </div>
+                        <div class="task-row" data-tag="overdue">
+                            <div class="task-row-left">
+                                <div class="custom-checkbox"><input type="checkbox" id="ft4"><label for="ft4"></label></div>
+                                <div>
+                                    <h4 class="task-row-title" style="color:var(--clr-danger)">Follow Up – Retail Solutions</h4>
+                                    <p class="task-row-meta" style="color:var(--clr-danger)"><span class="material-symbols-rounded">event</span> May 17 (Overdue) &nbsp;·&nbsp; <span class="material-symbols-rounded">person</span> Emma Brown</p>
+                                </div>
+                            </div>
+                            <div class="task-row-right">
+                                <span class="priority-label high">High</span>
+                                <button class="icon-btn-small"><span class="material-symbols-rounded">edit</span></button>
+                                <button class="icon-btn-small danger"><span class="material-symbols-rounded">delete</span></button>
+                            </div>
+                        </div>
+                        <div class="task-row" data-tag="today">
+                            <div class="task-row-left">
+                                <div class="custom-checkbox"><input type="checkbox" id="ft5"><label for="ft5"></label></div>
+                                <div>
+                                    <h4 class="task-row-title">Weekly Team Sync</h4>
+                                    <p class="task-row-meta"><span class="material-symbols-rounded">event</span> Today, 9:30 AM &nbsp;·&nbsp; <span class="material-symbols-rounded">person</span> Alex Doe</p>
+                                </div>
+                            </div>
+                            <div class="task-row-right">
+                                <span class="priority-label medium">Medium</span>
+                                <button class="icon-btn-small"><span class="material-symbols-rounded">edit</span></button>
+                                <button class="icon-btn-small danger"><span class="material-symbols-rounded">delete</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Add Task Modal -->
+    <div class="modal-overlay" id="taskModal">
+        <div class="modal-box">
+            <div class="modal-header">
+                <h2>Add New Task</h2>
+                <button class="icon-btn" onclick="closeAddTaskModal()"><span class="material-symbols-rounded">close</span></button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>Task Title</label>
+                    <input type="text" placeholder="e.g. Call with TechNova client..." class="form-input" id="newTaskTitle">
+                </div>
+                <div class="form-group">
+                    <label>Assigned To</label>
+                    <input type="text" placeholder="e.g. Alex Doe" class="form-input">
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Due Date</label>
+                        <input type="date" class="form-input" id="newTaskDate">
+                    </div>
+                    <div class="form-group">
+                        <label>Priority</label>
+                        <select class="custom-select" style="width:100%;">
+                            <option>High</option>
+                            <option>Medium</option>
+                            <option>Low</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" onclick="closeAddTaskModal()">Cancel</button>
+                <button class="btn-primary" onclick="addTask()">Add Task</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Management - CreativeCRM</title>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Google Material Symbols -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0" />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <span class="material-symbols-rounded logo-icon">layers</span>
+                    <h2>CreativeCRM</h2>
+                </div>
+                <button class="close-sidebar" id="closeSidebarBtn">
+                    <span class="material-symbols-rounded">close</span>
+                </button>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">
+                            <span class="material-symbols-rounded">dashboard</span>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-item active">
+                        <a href="clients.html" class="nav-link">
+                            <span class="material-symbols-rounded">group</span>
+                            <span>Clients</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="leads.html" class="nav-link">
+                            <span class="material-symbols-rounded">leaderboard</span>
+                            <span>Leads</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <span class="material-symbols-rounded">folder_open</span>
+                            <span>Projects</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="tasks.html" class="nav-link">
+                            <span class="material-symbols-rounded">task_alt</span>
+                            <span>Tasks</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="analytics.html" class="nav-link">
+                            <span class="material-symbols-rounded">analytics</span>
+                            <span>Analytics</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="sidebar-footer">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <span class="material-symbols-rounded">settings</span>
+                            <span>Settings</span>
+                        </a>
+                    </li>
+                </ul>
+                <div class="user-profile">
+                    <img src="https://ui-avatars.com/api/?name=Alex+Doe&background=0D8ABC&color=fff" alt="User Profile" class="avatar">
+                    <div class="user-info">
+                        <p class="user-name">Alex Doe</p>
+                        <p class="user-role">Admin</p>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="top-header">
+                <div class="header-left">
+                    <button class="menu-btn" id="menuBtn">
+                        <span class="material-symbols-rounded">menu</span>
+                    </button>
+                    <h1 class="page-title">Client Management</h1>
+                </div>
+                <div class="header-right">
+                    <button class="btn-primary" style="display: flex; align-items: center; gap: 8px;">
+                        <span class="material-symbols-rounded" style="font-size: 20px;">add</span> Add Client
+                    </button>
+                    <button class="icon-btn notification-btn">
+                        <span class="material-symbols-rounded">notifications</span>
+                        <span class="badge">3</span>
+                    </button>
+                </div>
+            </header>
+
+            <!-- Dashboard Content -->
+            <div class="content-area">
+                <!-- Filters and Search -->
+                <div class="controls-bar">
+                    <div class="search-bar" style="width: 350px;">
+                        <span class="material-symbols-rounded search-icon">search</span>
+                        <input type="text" placeholder="Search clients by name, email, or company...">
+                    </div>
+                    <div class="filter-group">
+                        <select class="custom-select">
+                            <option value="">All Statuses</option>
+                            <option value="active">Active</option>
+                            <option value="pending">Pending</option>
+                            <option value="inactive">Inactive</option>
+                        </select>
+                        <select class="custom-select">
+                            <option value="">Sort By</option>
+                            <option value="recent">Most Recent</option>
+                            <option value="name">Name A-Z</option>
+                            <option value="revenue">Revenue High-Low</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Client Table -->
+                <div class="table-card full-width">
+                    <div class="table-responsive">
+                        <table class="client-table">
+                            <thead>
+                                <tr>
+                                    <th>Client Name</th>
+                                    <th>Company</th>
+                                    <th>Contact Information</th>
+                                    <th>Total Revenue</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Client 1 -->
+                                <tr>
+                                    <td>
+                                        <div class="client-name">
+                                            <img src="https://ui-avatars.com/api/?name=Sarah+Smith&background=E1F0FF&color=0D8ABC" alt="Avatar">
+                                            <span>Sarah Smith</span>
+                                        </div>
+                                    </td>
+                                    <td>TechNova Inc.</td>
+                                    <td>
+                                        <div class="contact-col">
+                                            <span>sarah@technova.com</span>
+                                            <span class="phone">+1 (555) 123-4567</span>
+                                        </div>
+                                    </td>
+                                    <td>₹4.5L</td>
+                                    <td><span class="status-badge active">Active</span></td>
+                                    <td>
+                                        <div class="action-buttons">
+                                            <button class="icon-btn-small" title="Edit"><span class="material-symbols-rounded">edit</span></button>
+                                            <button class="icon-btn-small" title="Email"><span class="material-symbols-rounded">mail</span></button>
+                                            <button class="icon-btn-small danger" title="Delete"><span class="material-symbols-rounded">delete</span></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <!-- Client 2 -->
+                                <tr>
+                                    <td>
+                                        <div class="client-name">
+                                            <img src="https://ui-avatars.com/api/?name=John+Doe&background=F3E8FF&color=7C3AED" alt="Avatar">
+                                            <span>John Doe</span>
+                                        </div>
+                                    </td>
+                                    <td>Creative Labs</td>
+                                    <td>
+                                        <div class="contact-col">
+                                            <span>john@creativelabs.co</span>
+                                            <span class="phone">+1 (555) 987-6543</span>
+                                        </div>
+                                    </td>
+                                    <td>₹1.2L</td>
+                                    <td><span class="status-badge pending">Pending</span></td>
+                                    <td>
+                                        <div class="action-buttons">
+                                            <button class="icon-btn-small" title="Edit"><span class="material-symbols-rounded">edit</span></button>
+                                            <button class="icon-btn-small" title="Email"><span class="material-symbols-rounded">mail</span></button>
+                                            <button class="icon-btn-small danger" title="Delete"><span class="material-symbols-rounded">delete</span></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <!-- Client 3 -->
+                                <tr>
+                                    <td>
+                                        <div class="client-name">
+                                            <img src="https://ui-avatars.com/api/?name=Emma+Brown&background=FFE4E6&color=E11D48" alt="Avatar">
+                                            <span>Emma Brown</span>
+                                        </div>
+                                    </td>
+                                    <td>Retail Solutions</td>
+                                    <td>
+                                        <div class="contact-col">
+                                            <span>emma@retailsol.com</span>
+                                            <span class="phone">+44 20 7123 4567</span>
+                                        </div>
+                                    </td>
+                                    <td>₹0.0L</td>
+                                    <td><span class="status-badge inactive">Inactive</span></td>
+                                    <td>
+                                        <div class="action-buttons">
+                                            <button class="icon-btn-small" title="Edit"><span class="material-symbols-rounded">edit</span></button>
+                                            <button class="icon-btn-small" title="Email"><span class="material-symbols-rounded">mail</span></button>
+                                            <button class="icon-btn-small danger" title="Delete"><span class="material-symbols-rounded">delete</span></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <!-- Client 4 -->
+                                <tr>
+                                    <td>
+                                        <div class="client-name">
+                                            <img src="https://ui-avatars.com/api/?name=Michael+Lee&background=D1FAE5&color=059669" alt="Avatar">
+                                            <span>Michael Lee</span>
+                                        </div>
+                                    </td>
+                                    <td>Lee & Co.</td>
+                                    <td>
+                                        <div class="contact-col">
+                                            <span>mike@leeco.net</span>
+                                            <span class="phone">+61 4 1234 5678</span>
+                                        </div>
+                                    </td>
+                                    <td>₹8.9L</td>
+                                    <td><span class="status-badge active">Active</span></td>
+                                    <td>
+                                        <div class="action-buttons">
+                                            <button class="icon-btn-small" title="Edit"><span class="material-symbols-rounded">edit</span></button>
+                                            <button class="icon-btn-small" title="Email"><span class="material-symbols-rounded">mail</span></button>
+                                            <button class="icon-btn-small danger" title="Delete"><span class="material-symbols-rounded">delete</span></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- Pagination -->
+                    <div class="pagination">
+                        <span class="page-info">Showing 1 to 4 of 120 entries</span>
+                        <div class="page-buttons">
+                            <button class="page-btn" disabled><span class="material-symbols-rounded">chevron_left</span></button>
+                            <button class="page-btn active">1</button>
+                            <button class="page-btn">2</button>
+                            <button class="page-btn">3</button>
+                            <span class="page-dots">...</span>
+                            <button class="page-btn">12</button>
+                            <button class="page-btn"><span class="material-symbols-rounded">chevron_right</span></button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <!-- Custom Script -->
+    <script src="app.js"></script>
+</body>
+</html>

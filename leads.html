@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leads Pipeline - CreativeCRM</title>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Google Material Symbols -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0" />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <span class="material-symbols-rounded logo-icon">layers</span>
+                    <h2>CreativeCRM</h2>
+                </div>
+                <button class="close-sidebar" id="closeSidebarBtn">
+                    <span class="material-symbols-rounded">close</span>
+                </button>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">
+                            <span class="material-symbols-rounded">dashboard</span>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="clients.html" class="nav-link">
+                            <span class="material-symbols-rounded">group</span>
+                            <span>Clients</span>
+                        </a>
+                    </li>
+                    <li class="nav-item active">
+                        <a href="leads.html" class="nav-link">
+                            <span class="material-symbols-rounded">leaderboard</span>
+                            <span>Leads</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <span class="material-symbols-rounded">folder_open</span>
+                            <span>Projects</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="tasks.html" class="nav-link">
+                            <span class="material-symbols-rounded">task_alt</span>
+                            <span>Tasks</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="analytics.html" class="nav-link">
+                            <span class="material-symbols-rounded">analytics</span>
+                            <span>Analytics</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="sidebar-footer">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <span class="material-symbols-rounded">settings</span>
+                            <span>Settings</span>
+                        </a>
+                    </li>
+                </ul>
+                <div class="user-profile">
+                    <img src="https://ui-avatars.com/api/?name=Alex+Doe&background=0D8ABC&color=fff" alt="User Profile" class="avatar">
+                    <div class="user-info">
+                        <p class="user-name">Alex Doe</p>
+                        <p class="user-role">Admin</p>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content pipeline-content">
+            <!-- Header -->
+            <header class="top-header">
+                <div class="header-left">
+                    <button class="menu-btn" id="menuBtn">
+                        <span class="material-symbols-rounded">menu</span>
+                    </button>
+                    <h1 class="page-title">Leads Pipeline</h1>
+                </div>
+                <div class="header-right">
+                    <button class="btn-primary" style="display: flex; align-items: center; gap: 8px;">
+                        <span class="material-symbols-rounded" style="font-size: 20px;">add</span> Add Lead
+                    </button>
+                </div>
+            </header>
+
+            <!-- Kanban Board -->
+            <div class="kanban-board">
+                <!-- Column 1 -->
+                <div class="kanban-column">
+                    <div class="column-header">
+                        <div class="column-title">
+                            <span class="dot" style="background: var(--clr-primary);"></span>
+                            <h3>New Lead</h3>
+                            <span class="card-count">3</span>
+                        </div>
+                    </div>
+                    <div class="column-body" id="col-new" ondrop="drop(event)" ondragover="allowDrop(event)">
+                        <!-- Card -->
+                        <div class="kanban-card" draggable="true" ondragstart="drag(event)" id="lead1">
+                            <div class="card-labels">
+                                <span class="label bg-blue">Web Design</span>
+                            </div>
+                            <h4 class="card-title">Starlight Cafe Website</h4>
+                            <p class="card-client">Starlight Cafe</p>
+                            <div class="card-footer">
+                                <span class="card-value">₹45,000</span>
+                                <img src="https://ui-avatars.com/api/?name=L+M&background=E1F0FF&color=0D8ABC" alt="Owner" class="card-owner">
+                            </div>
+                        </div>
+                        <!-- Card -->
+                        <div class="kanban-card" draggable="true" ondragstart="drag(event)" id="lead2">
+                            <div class="card-labels">
+                                <span class="label bg-purple">SEO</span>
+                            </div>
+                            <h4 class="card-title">Local Gym SEO Audit</h4>
+                            <p class="card-client">FitPro Gym</p>
+                            <div class="card-footer">
+                                <span class="card-value">₹15,000</span>
+                                <img src="https://ui-avatars.com/api/?name=A+D&background=0D8ABC&color=fff" alt="Owner" class="card-owner">
+                            </div>
+                        </div>
+                        <!-- Card -->
+                        <div class="kanban-card" draggable="true" ondragstart="drag(event)" id="lead3">
+                            <div class="card-labels">
+                                <span class="label bg-green">Marketing</span>
+                            </div>
+                            <h4 class="card-title">Social Media Campaign</h4>
+                            <p class="card-client">Eco Store</p>
+                            <div class="card-footer">
+                                <span class="card-value">₹30,000</span>
+                                <img src="https://ui-avatars.com/api/?name=S+K&background=D1FAE5&color=059669" alt="Owner" class="card-owner">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Column 2 -->
+                <div class="kanban-column">
+                    <div class="column-header">
+                        <div class="column-title">
+                            <span class="dot" style="background: var(--clr-purple);"></span>
+                            <h3>Contacted</h3>
+                            <span class="card-count">1</span>
+                        </div>
+                    </div>
+                    <div class="column-body" id="col-contacted" ondrop="drop(event)" ondragover="allowDrop(event)">
+                        <!-- Card -->
+                        <div class="kanban-card" draggable="true" ondragstart="drag(event)" id="lead4">
+                            <div class="card-labels">
+                                <span class="label bg-blue">App Dev</span>
+                            </div>
+                            <h4 class="card-title">Food Delivery App</h4>
+                            <p class="card-client">QuickBite</p>
+                            <div class="card-footer">
+                                <span class="card-value">₹1.5L</span>
+                                <img src="https://ui-avatars.com/api/?name=A+D&background=0D8ABC&color=fff" alt="Owner" class="card-owner">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Column 3 -->
+                <div class="kanban-column">
+                    <div class="column-header">
+                        <div class="column-title">
+                            <span class="dot" style="background: var(--clr-warning);"></span>
+                            <h3>Proposal Sent</h3>
+                            <span class="card-count">2</span>
+                        </div>
+                    </div>
+                    <div class="column-body" id="col-proposal" ondrop="drop(event)" ondragover="allowDrop(event)">
+                        <!-- Card -->
+                        <div class="kanban-card" draggable="true" ondragstart="drag(event)" id="lead5">
+                            <div class="card-labels">
+                                <span class="label bg-blue">Web Design</span>
+                            </div>
+                            <h4 class="card-title">Corporate Redesign</h4>
+                            <p class="card-client">TechNova</p>
+                            <div class="card-footer">
+                                <span class="card-value">₹2.0L</span>
+                                <img src="https://ui-avatars.com/api/?name=E+B&background=FFE4E6&color=E11D48" alt="Owner" class="card-owner">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Column 4 -->
+                <div class="kanban-column">
+                    <div class="column-header">
+                        <div class="column-title">
+                            <span class="dot" style="background: #F97316;"></span>
+                            <h3>Negotiation</h3>
+                            <span class="card-count">0</span>
+                        </div>
+                    </div>
+                    <div class="column-body" id="col-negotiation" ondrop="drop(event)" ondragover="allowDrop(event)">
+                        <!-- Empty Column -->
+                    </div>
+                </div>
+
+                <!-- Column 5 -->
+                <div class="kanban-column">
+                    <div class="column-header">
+                        <div class="column-title">
+                            <span class="dot" style="background: var(--clr-success);"></span>
+                            <h3>Closed Deal</h3>
+                            <span class="card-count">1</span>
+                        </div>
+                    </div>
+                    <div class="column-body" id="col-closed" ondrop="drop(event)" ondragover="allowDrop(event)">
+                        <!-- Card -->
+                        <div class="kanban-card" draggable="true" ondragstart="drag(event)" id="lead6">
+                            <div class="card-labels">
+                                <span class="label bg-green">Marketing</span>
+                            </div>
+                            <h4 class="card-title">Q3 Ad Campaign</h4>
+                            <p class="card-client">Retail Solutions</p>
+                            <div class="card-footer">
+                                <span class="card-value">₹80,000</span>
+                                <img src="https://ui-avatars.com/api/?name=A+D&background=0D8ABC&color=fff" alt="Owner" class="card-owner">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <!-- Custom Script -->
+    <script src="app.js"></script>
+</body>
+</html>
